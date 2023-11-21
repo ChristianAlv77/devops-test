@@ -16,7 +16,7 @@
 # You can also use email addresses if you prefer. They'll be
 # used to look up users just like we do for commit author
 # emails.
-*.go docs@example.com
+*.go ccalvarez44@ucatolica.edu.co
 
 # Teams can be specified as code owners as well. Teams should
 # be identified in the format @org/team-name. Teams must have
@@ -27,12 +27,12 @@
 # In this example, @doctocat owns any files in the build/logs
 # directory at the root of the repository and any of its
 # subdirectories.
-/build/logs/ @doctocat
+/build/logs/ @caroingsis @djxyan @jpedrozac
 
 # The `docs/*` pattern will match files like
 # `docs/getting-started.md` but not further nested files like
 # `docs/build-app/troubleshooting.md`.
-docs/*  docs@example.com
+docs/*  ccalvarez44@ucatolica.edu.co
 
 # In this example, @octocat owns any file in an apps directory
 # anywhere in your repository.
