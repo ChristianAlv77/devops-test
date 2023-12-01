@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - monitoring
+    volumes:
+      - grafana_data:/var/lib/grafana
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=grafana
+      - MYSQL_USER=grafana_user
+      - MYSQL_PASSWORD=grafana_password
+    ports:
+      - "3306:3306"
+    networks:
+      - monitoring
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - monitoring
+    volumes:
+      - redis_data:/data
+
+networks:
+  monitoring:
+
+volumes:
+  grafana_data:
+  mysql_data:
+  redis_data:
